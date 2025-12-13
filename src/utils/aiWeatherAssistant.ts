@@ -26,7 +26,6 @@ const client = {
   },
 };
 
-console.log(process.env, "ashu");
 type ChatHistoryItem = {
   id: number;
   message: { role: "user" | "assistant"; content: string }[];
@@ -49,7 +48,7 @@ export const askWeatherAI = async (
           "X-Title": "WeatherApp",
         },
         body: JSON.stringify({
-          model: "meta-llama/llama-3.2-3b-instruct:free",
+          model: "gpt-4o-mini",
           messages: [
             { role: "system", content: SYSTEM_PROMPT },
             ...history.slice(-4).flatMap((h) => h.message),
